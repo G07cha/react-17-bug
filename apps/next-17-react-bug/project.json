@@ -1,0 +1,62 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/next-17-react-bug",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "root": "apps/next-17-react-bug",
+        "outputPath": "dist/apps/next-17-react-bug"
+      },
+      "configurations": {
+        "development": {
+          "outputPath": "apps/next-17-react-bug"
+        },
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "next-17-react-bug:build",
+        "dev": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "next-17-react-bug:build:development",
+          "dev": true
+        },
+        "production": {
+          "buildTarget": "next-17-react-bug:build:production",
+          "dev": false
+        }
+      }
+    },
+    "export": {
+      "executor": "@nrwl/next:export",
+      "options": {
+        "buildTarget": "next-17-react-bug:build:production"
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/next-17-react-bug"],
+      "options": {
+        "jestConfig": "apps/next-17-react-bug/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/next-17-react-bug/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "next-17-react-bug": "apps/next-17-react-bug",
+    "next-17-react-bug-e2e": "apps/next-17-react-bug-e2e"
+  }
+}
